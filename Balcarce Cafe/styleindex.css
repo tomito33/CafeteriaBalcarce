@@ -1,0 +1,324 @@
+/* =========================================================
+   1. ANIMACIONES DE ENTRADA (FADE UP EN CASCADA)
+   ========================================================= */
+
+@keyframes aparecerHaciaArriba {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animar-entrada { animation: aparecerHaciaArriba 0.8s ease-out both; }
+.retraso-1 { animation-delay: 0.2s; }
+.retraso-2 { animation-delay: 0.4s; }
+.retraso-3 { animation-delay: 0.6s; }
+.retraso-4 { animation-delay: 0.8s; } /* Un retraso extra para el contacto */
+
+
+/* =========================================================
+   2. ESTILOS GENERALES Y DISEÑO DE TARJETAS
+   ========================================================= */
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f4f0ec; 
+    scroll-behavior: smooth; 
+}
+
+/* FONDO CON IMAGEN */
+.fondo-con-imagen {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), 
+                url('img/BalcarceLocal.jpeg'); 
+    
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+    padding-top: 40px;
+    padding-bottom: 40px;
+    width: 100%;
+}
+
+/* Contenedor que agrupa y centra todo */
+.contenedor-principal {
+    max-width: 900px;
+    margin: 0 auto; 
+    padding: 0 20px;
+}
+
+/* Margen especial solo para la carta */
+.seccion-carta-fondo {
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+/* =========================================================
+   3. ESTILOS DEL LOGO Y LA FRANJA (HERO) A LO ANCHO
+   ========================================================= */
+
+/* Contenedor del logo */
+.contenedor-logo {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.logo-principal {
+    max-width: 180px; /* Tamaño del logo */
+    height: auto;
+    border-radius: 50%; /* Si tu logo es redondo. Si es cuadrado, podés borrar esta línea */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 3px solid rgba(255, 255, 255, 0.15); /* Borde sutil */
+    transition: transform 0.3s ease;
+}
+
+.logo-principal:hover {
+    transform: scale(1.05);
+}
+
+/* Nueva franja a lo ancho */
+.hero-ancho {
+    background: linear-gradient(135deg, rgba(74, 46, 27, 0.9), rgba(107, 68, 42, 0.9));
+    color: white;
+    text-align: center;
+    padding: 45px 20px; /* Espaciado interno de la franja */
+    width: 100%; /* Ocupa el 100% de la pantalla */
+    box-sizing: border-box;
+    margin-bottom: 40px; /* Espacio antes de las tarjetas */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Mantiene el texto alineado con el ancho de 900px de las tarjetas */
+.contenido-hero {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-ancho h1 { margin: 0 0 10px 0; font-size: 2.5em; }
+.hero-ancho h2 { margin: 0 0 15px 0; font-size: 1.5em; color: #f39c12; }
+
+/* Botón directo a la Carta (Para el QR) */
+.btn-qr-carta {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 30px;
+    background-color: #d35400;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(211, 84, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-qr-carta:hover {
+    background-color: #f39c12;
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(243, 156, 18, 0.4);
+}
+
+
+/* =========================================================
+   4. ESTILOS MAESTROS DE LAS TARJETAS (CUADRADOS BLANCOS)
+   ========================================================= */
+
+.tarjeta-seccion {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 35px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-seccion:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.tarjeta-seccion h3 {
+    margin-top: 0;
+    color: #4a2e1b;
+    border-bottom: 2px solid #f2eeea;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+/* Contenedor Grid para Dónde y Contacto */
+.grid-dos-columnas {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 25px;
+}
+
+/* Estilos de Contacto */
+.lista-contacto { list-style: none; padding: 0; margin: 0; }
+.lista-contacto li { margin-bottom: 15px; font-size: 1.05em; }
+.lista-contacto a { color: #d35400; text-decoration: none; font-weight: bold; transition: color 0.2s; }
+.lista-contacto a:hover { color: #4a2e1b; }
+
+/* Estilos del Mapa de Google */
+.mapa-google {
+    margin-top: 15px;
+    border-radius: 12px;
+    overflow: hidden; 
+    border: 2px solid #f2eeea;
+}
+
+/* =========================================================
+   5. NAVEGACIÓN RÁPIDA DE LA CARTA Y MENÚ
+   ========================================================= */
+
+.nav-categorias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.nav-categorias a {
+    text-decoration: none;
+    background-color: #f2eeea;
+    color: #4a2e1b;
+    padding: 8px 18px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+}
+
+.nav-categorias a:hover {
+    background-color: #d35400;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.categoria-menu { scroll-margin-top: 30px; }
+
+/* Grilla del Menú */
+.menu-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border: 1px solid #eaeaea; 
+    border-radius: 12px; 
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.01); 
+    gap: 15px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.item-info { flex-grow: 1; padding-right: 10px; }
+.item-info h5 { margin: 0 0 6px 0; font-size: 1.1em; color: #333; }
+.item-info p { margin: 0 0 8px 0; color: #777; font-size: 0.88em; line-height: 1.3; }
+.item-price { font-weight: bold; color: #d35400; font-size: 1.15em; }
+.item-img-container { flex-shrink: 0; order: 2; }
+
+.producto-img {
+    width: 85px; 
+    height: 85px;
+    object-fit: cover;
+    border-radius: 10px; 
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.producto-img:hover { transform: scale(1.06); }
+
+
+/* =========================================================
+   6. LIGHTBOX / MODAL
+   ========================================================= */
+
+.modal {
+    display: none; position: fixed; z-index: 2000; 
+    padding-top: 60px; left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); 
+}
+.modal-contenido { margin: auto; display: block; max-width: 85%; max-height: 75vh; border-radius: 8px; }
+#caption-modal { margin: auto; display: block; width: 80%; text-align: center; color: white; padding: 20px 0; font-size: 1.2em; }
+.cerrar-modal { position: absolute; top: 20px; right: 35px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; }
+.cerrar-modal:hover { color: #d35400; }
+
+
+/* =========================================================
+   7. DISEÑO ADAPTATIVO (CELULARES)
+   ========================================================= */
+
+@media (max-width: 768px) {
+    .menu-list, .grid-dos-columnas { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+    .hero-ancho h1 { font-size: 2em; }
+    .hero-ancho h2 { font-size: 1.2em; }
+    .producto-img { width: 75px; height: 75px; }
+    .item-info h5 { font-size: 1em; }
+    .item-price { font-size: 1.05em; }
+}
+
+/* =========================================================
+   ESTILOS PARA BOTONES DE REDES SOCIALES
+   ========================================================= */
+
+.redes-sociales {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-red {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 8px;
+    color: white !important;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.05em;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hace que el icono del logo sea un poquito más grande */
+.btn-red i {
+    font-size: 1.3em;
+}
+
+/* Colores oficiales de cada plataforma */
+.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.facebook {
+    background-color: #1877F2;
+}
+
+.tiktok {
+    background-color: #000000;
+}
+
+/* El efecto al pasar el mouse por encima */
+.btn-red:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}

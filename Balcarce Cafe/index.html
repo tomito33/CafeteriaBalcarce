@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balcarce Café y Alfajores</title>
+    <link rel="stylesheet" href="styleindex.css">
+    <!-- Librería de iconos para las redes sociales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="fondo-con-imagen">
+        
+        <div class="contenedor-logo animar-entrada">
+            <img src="img/LogoBalcarce.jpg" alt="Logo Balcarce Café" class="logo-principal">
+        </div>
+
+        <header class="hero-ancho animar-entrada retraso-1">
+            <div class="contenido-hero">
+                <h1>☕ Balcarce Café y Alfajores</h1>
+                <h2>¡Tu pausa perfecta en el centro de la ciudad!</h2>
+                <p>El lugar ideal donde la tradición de los mejores alfajores se encuentra con el aroma inconfundible del buen café.</p>
+                <a href="#nav-categorias" class="btn-qr-carta">Mirá nuestra Carta 🍽️</a>
+            </div>
+        </header>
+
+        <div class="contenedor-principal">
+
+            <section class="tarjeta-seccion animar-entrada retraso-2">
+                <h3>🤎 Nuestra Esencia</h3>
+                <p>Preparamos cada detalle para que te sientas como en casa. Vení a disfrutar de un ambiente cálido y relajado, ideal para empezar tu mañana con energía, tener una reunión de trabajo, o compartir una merienda inolvidable con amigos o familia. ¡El sabor de nuestros clásicos te está esperando!</p>
+            </section>
+
+            <div class="grid-dos-columnas">
+                
+                <section class="tarjeta-seccion animar-entrada retraso-3">
+                    <h3>📍 Dónde Encontrarnos</h3>
+                    <p><strong>Dirección:</strong> Laprida 19 Oeste, San Juan</p>
+                    <p><strong>Horarios:</strong> Todos los días, de 07:00 hs a 22:30 hs</p>
+                    <div class="mapa-google">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d291.2502720621397!2d-68.52631320841034!3d-31.53536785387714!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96814029b54fc60f%3A0xcdc59ac4d9b78a93!2sBalcarce!5e0!3m2!1ses-419!2sar!4v1780318711064!5m2!1ses-419!2sar" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </section>
+
+<!-- 4. Tarjeta Contacto -->
+                <section class="tarjeta-seccion animar-entrada retraso-4">
+                    <h3>📱 Contacto</h3>
+                    <ul class="lista-contacto">
+                        <li>📞 <a href="https://wa.me/5492646318948" target="_blank">+54 9 264 6318948</a></li>
+                        <li>✉️ <a href="mailto:gaston.ortiz156@gmail.com">gaston.ortiz156@gmail.com</a></li>
+                    </ul>
+
+                    <!-- NUEVO: Botones de Redes Sociales -->
+                    <h4 style="margin-top: 25px; margin-bottom: 15px; color: #4a2e1b; border-top: 1px solid #eee; padding-top: 15px;">¡Seguinos en nuestras redes!</h4>
+                    
+                    <div class="redes-sociales">
+                        <a href="https://www.instagram.com/balcarce.cafesj/" target="_blank" class="btn-red instagram">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                        <a href="URL_DE_TU_FACEBOOK" target="_blank" class="btn-red facebook">
+                            <i class="fab fa-facebook-f"></i> Facebook
+                        </a>
+                        <a href="URL_DE_TU_TIKTOK" target="_blank" class="btn-red tiktok">
+                            <i class="fab fa-tiktok"></i> TikTok
+                        </a>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div> <main class="contenedor-principal seccion-carta-fondo">
+        <section class="tarjeta-seccion menu-section">
+            <h3>🍽️ Nuestra Carta</h3>
+            <p>Hacé clic en una categoría para ir directamente:</p>
+            
+            <nav id="nav-categorias" class="nav-categorias"></nav>
+            <div id="contenedor-menu-completo"></div>
+        </section>
+    </main>
+
+    <div id="modal-imagen" class="modal">
+        <span class="cerrar-modal" id="cerrar-modal">×</span>
+        <img class="modal-contenido" id="img-ampliada">
+        <div id="caption-modal"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

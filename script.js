@@ -138,44 +138,47 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // =========================================================
-// LÓGICA DEL BUSCADOR EN TIEMPO REAL
-// =========================================================
+// 
+//  --- EVENTOS DE INICIO Y PANTALLA DE CARGA ---
 document.addEventListener('DOMContentLoaded', () => {
-    const buscador = document.getElementById('buscador-menu');
-
-    if(buscador) {
-        // Escucha cada vez que el usuario teclea algo
-        buscador.addEventListener('input', function(e) {
-            // Convierte lo escrito a minúsculas para que no importen las mayúsculas
-            const textoBusqueda = e.target.value.toLowerCase(); 
-            const categorias = document.querySelectorAll('.categoria-menu');
-
-            categorias.forEach(categoria => {
-                let tieneProductosVisibles = false;
-                const productos = categoria.querySelectorAll('.menu-item');
-
-                productos.forEach(producto => {
-                    // Busca tanto en el título como en la descripción del producto
-                    const titulo = producto.querySelector('h5').innerText.toLowerCase();
-                    const descripcion = producto.querySelector('p').innerText.toLowerCase();
-
-                    // Si el texto coincide con el título o la descripción, lo muestra
-                    if (titulo.includes(textoBusqueda) || descripcion.includes(textoBusqueda)) {
-                        producto.style.display = 'flex';
-                        tieneProductosVisibles = true;
-                    } else {
-                        // Si no coincide, lo oculta
-                        producto.style.display = 'none';
-                    }
-                });
-
-                // Si la categoría no tiene ningún producto visible, oculta el título de la categoría
-                if (tieneProductosVisibles) {
-                    categoria.style.display = 'block';
-                } else {
-                    categoria.style.display = 'none';
-                }
-            });
-        });
+    cargarMenuDesdeGoogle(); // Llama a Google Sheets
+    
+    // Configuración para cerrar la foto grande (Modal)
+    const modal = document.getElementById("modal-imagen");
+    const spanCerrar = document.getElementById("cerrar-modal");
+    
+    if(spanCerrar) {
+        spanCerrar.onclick = () => { modal.style.display = "none"; };
     }
+    
+    window.onclick = (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    };
+
+    // Lógica del Loader y el contador
+    const porcentajeTexto = document.getElementById('porcentaje-carga');
+    const pantallaCarga = document.getElementById('pantalla-carga');
+    let progreso = 0;
+
+    // Aumenta el porcentaje de 0 a 100 a lo largo de 2.5 segundos
+    const intervalo = setInterval(() => {
+        progreso += 2; // Sube de a 2%
+        
+        if (progreso >= 100) {
+            progreso = 100;
+            clearInterval(intervalo);
+            
+            // Cuando llega a 100%, espera medio segundo y desaparece suavemente
+            setTimeout(() => {
+                pantallaCarga.classList.add('oculto');
+                document.body.classList.remove('cargando'); // Libera el movimiento de la página
+            }, 500);
+        }
+        
+        if(porcentajeTexto) {
+            porcentajeTexto.innerText = progreso + '%';
+        }
+    }, 50); // 50ms * 50 repeticiones = 2.5 segundos exactos
 });

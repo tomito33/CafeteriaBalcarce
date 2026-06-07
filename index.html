@@ -8,7 +8,28 @@
     <link rel="stylesheet" href="styleindex.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body class="cargando">
+
+    <div id="pantalla-carga">
+        <div class="contenedor-loader">
+            <img src="img/LogoBalcarce.jpg" alt="Logo Balcarce" class="logo-loader">
+            
+            <div class="escena-cafe">
+                <div class="maquina-perfil">
+                    <div class="cuerpo-maquina"></div>
+                    <div class="pico-vertedor"></div>
+                </div>
+                
+                <div class="chorro-continuo"></div>
+                
+                <div class="taza-loader">
+                    <div class="cafe-subiendo"></div>
+                </div>
+            </div>
+            
+            <p class="texto-carga">Preparando experiencia... <span id="porcentaje-carga">0%</span></p>
+        </div>
+    </div>
 
     <div class="fondo-con-imagen">
         
@@ -100,14 +121,16 @@
         </div>
     </div> 
 
-<main class="contenedor-principal seccion-carta-fondo">
+    <main class="contenedor-principal seccion-carta-fondo">
         <section class="tarjeta-seccion menu-section">
             <h3>🍽️ Nuestra Carta</h3>
             <p>Hacé clic en una categoría para ir directamente o buscá tu producto favorito:</p>
             
-            <div class="contenedor-buscador">
-                <i class="fas fa-search"></i>
-                <input type="text" id="buscador-menu" placeholder="Buscar café, alfajor, tostado...">
+            <div class="header-busqueda-container">
+                <div class="contenedor-buscador">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="buscador-menu" placeholder="Buscar café, alfajor, tostado...">
+                </div>
             </div>
             
             <nav id="nav-categorias" class="nav-categorias"></nav>
@@ -117,7 +140,7 @@
 
     <div id="modal-imagen" class="modal">
         <span class="cerrar-modal" id="cerrar-modal">×</span>
-        <img class="modal-contenido" id="img-ampliada">
+        <img class="modal-contenido" id="img-ampliada" alt="Imagen ampliada del producto">
         <div id="caption-modal"></div>
     </div>
 
@@ -135,9 +158,7 @@
                     <a href="https://www.instagram.com/tomi.cervantess/" target="_blank">
                         <i class="fab fa-instagram"></i> Diseño Web: Tomas Cervantes
                     </a>
-                    
                     <span style="color: #666;">|</span>
-                    
                     <a href="https://www.instagram.com/digitalsolutions.ar/" target="_blank">
                         <i class="fab fa-instagram"></i> Agencia: Digital Solutions
                     </a>
